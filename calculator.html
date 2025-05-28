@@ -1,60 +1,123 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Simple Calculator</title>
-</head>
-<body>
+  <head>
+    <title>Simple Calculator with Colors</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        margin: 4px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        background-color: #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* subtle drop shadow */
+        transition: background-color 0.3s ease, color 0.3s ease,
+          transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-<h2>Simple Calculator</h2>
+      button:hover {
+        background-color: #0056b3;
+        color: #ffd700;
+        transform: scale(1.1);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); /* stronger shadow on hover */
+      }
 
-<input type="text" id="display" readonly style="width: 160px; height: 30px; font-size: 18px;">
+      /* Number buttons */
+      button.number {
+        background-color: #3498db;
+      }
+      /* Operator buttons */
+      button.operator {
+        background-color: #e67e22;
+      }
+      /* Clear button */
+      button.clear {
+        background-color: #e74c3c;
+      }
+      /* Equals button */
+      button.equals {
+        background-color: #2ecc71;
+        width: 197px; /* same width as 4 buttons + margins */
+      }
+      div.container {
+        margin: auto;
+        background-color: #999c83;
+        padding: 24px;
+        border-radius: 30px;
+      }
+      input.result {
+        width: 190px;
+        height: 30px;
+        font-size: 18px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>SIMPLE CALCULATOR</p>
 
-<br><br>
+      <input
+        class="result"
+        type="text"
+        id="display"
+        readonly
+      />
 
-<button onclick="append('1')">1</button>
-<button onclick="append('2')">2</button>
-<button onclick="append('3')">3</button>
-<button onclick="append('+')">+</button>
-<br><br>
+      <br /><br />
 
-<button onclick="append('4')">4</button>
-<button onclick="append('5')">5</button>
-<button onclick="append('6')">6</button>
-<button onclick="append('-')">-</button>
-<br><br>
+      <button class="number" onclick="append('1')">1</button>
+      <button class="number" onclick="append('2')">2</button>
+      <button class="number" onclick="append('3')">3</button>
+      <button class="operator" onclick="append('+')">+</button>
+      <br /><br />
 
-<button onclick="append('7')">7</button>
-<button onclick="append('8')">8</button>
-<button onclick="append('9')">9</button>
-<button onclick="append('*')">*</button>
-<br><br>
+      <button class="number" onclick="append('4')">4</button>
+      <button class="number" onclick="append('5')">5</button>
+      <button class="number" onclick="append('6')">6</button>
+      <button class="operator" onclick="append('-')">-</button>
+      <br /><br />
 
-<button onclick="append('0')">0</button>
-<button onclick="append('.')">.</button>
-<button onclick="clearDisplay()">C</button>
-<button onclick="append('/')">/</button>
-<br><br>
+      <button class="number" onclick="append('7')">7</button>
+      <button class="number" onclick="append('8')">8</button>
+      <button class="number" onclick="append('9')">9</button>
+      <button class="operator" onclick="append('*')">*</button>
+      <br /><br />
 
-<button onclick="calculate()" style="width: 170px;">=</button>
+      <button class="number" onclick="append('0')">0</button>
+      <button class="number" onclick="append('.')">.</button>
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="append('/')">/</button>
+      <br /><br />
 
-<script>
-  function append(value) {
-    document.getElementById('display').value += value;
-  }
+      <button class="equals" onclick="calculate()">=</button>
+    </div>
+    <script>
+      function append(value) {
+        document.getElementById("display").value += value;
+      }
 
-  function clearDisplay() {
-    document.getElementById('display').value = '';
-  }
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
 
-  function calculate() {
-    try {
-      let result = eval(document.getElementById('display').value);
-      document.getElementById('display').value = result;
-    } catch {
-      document.getElementById('display').value = 'Error';
-    }
-  }
-</script>
-
-</body>
+      function calculate() {
+        try {
+          let result = eval(document.getElementById("display").value);
+          document.getElementById("display").value = result;
+        } catch {
+          document.getElementById("display").value = "Error";
+        }
+      }
+    </script>
+  </body>
 </html>
