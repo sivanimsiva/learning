@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Tags Demonstration</title>
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #2980b9;
+            margin-top: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Layout */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            color: white;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #3498db;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        article {
+            margin-bottom: 2rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        caption {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Forms */
+        form {
+            margin-bottom: 2rem;
+        }
+        
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        legend {
+            padding: 0 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        input[type="checkbox"], input[type="radio"] {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        button[type="reset"] {
+            background-color: #95a5a6;
+        }
+        
+        button[type="reset"]:hover {
+            background-color: #7f8c8d;
+        }
+        
+        /* Code & Preformatted */
+        code, pre, samp, kbd {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        pre {
+            padding: 1rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            border-left: 3px solid #3498db;
+        }
+        
+        /* Figures & Images */
+        figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        figcaption {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: #7f8c8d;
+        }
+        
+        /* Multimedia */
+        audio, video {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        /* Interactive Elements */
+        details {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+        }
+        
+        summary {
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        dialog {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Semantic Elements */
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        address {
+            font-style: normal;
+            margin-bottom: 1rem;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-muted {
+            color: #7f8c8d;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            main {
+                padding: 0 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Document Structure Tags -->
+    <header>
+        <h1>HTML5 Tags Demonstration</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+                <li><a href="index.html">back</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sectioning Tags -->
+        <section id="section1">
+            <h2>Section 1: Basic Elements</h2>
+            
+            <article>
+                <h3>Text Formatting</h3>
+                <p>This is a regular paragraph with <strong>strong importance</strong>, <em>emphasis</em>, <mark>highlighted text</mark>, <small>small print</small>, and <del>deleted text</del>.</p>
+                <p>Here's some <sup>superscript</sup> and <sub>subscript</sub> text.</p>
+                <p><abbr title="HyperText Markup Language">HTML</abbr> is the standard markup language.</p>
+                <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+                <p><code>console.log('Hello World');</code> is JavaScript code.</p>
+                <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.</p>
+                <p><samp>Error: File not found</samp> is sample output.</p>
+                <p><var>x</var> is a variable in mathematics.</p>
+                <p><time datetime="2023-05-15">May 15, 2023</time> was a great day.</p>
+            </article>
+
+            <article>
+                <h3>Lists</h3>
+                <h4>Unordered List</h4>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+
+                <h4>Ordered List</h4>
+                <ol>
+                    <li>First item</li>
+                    <li>Second item</li>
+                    <li>Third item</li>
+                </ol>
+
+                <h4>Description List</h4>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>HyperText Markup Language</dd>
+                    <dt>CSS</dt>
+                    <dd>Cascading Style Sheets</dd>
+                </dl>
+            </article>
+        </section>
+
+        <section id="section2">
+            <h2>Section 2: Multimedia & Interactive Elements</h2>
+            
+            <article>
+                <h3>Images</h3>
+                <figure>
+                    <img src="https://via.placeholder.com/400x200" alt="Placeholder image" width="400" height="200">
+                    <figcaption>Figure 1: A placeholder image</figcaption>
+                </figure>
+
+                <picture>
+                    <source media="(min-width: 800px)" srcset="https://via.placeholder.com/800x400">
+                    <source media="(min-width: 400px)" srcset="https://via.placeholder.com/400x200">
+                    <img src="https://via.placeholder.com/200x100" alt="Responsive image">
+                </picture>
+            </article>
+
+            <article>
+                <h3>Audio</h3>
+                <audio controls>
+                    <source src="audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </article>
+
+            <article>
+                <h3>Video</h3>
+                <video width="320" height="240" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </article>
+
+            <article>
+                <h3>Embedded Content</h3>
+                <iframe src="https://www.example.com" title="Example Website" width="400" height="300"></iframe>
+                
+                <embed type="image/jpg" src="image.jpg" width="300" height="200">
+                
+                <object data="sample.pdf" type="application/pdf" width="300" height="200">
+                    PDF viewer plugin required.
+                </object>
+            </article>
+
+            <article>
+                <h3>Interactive Elements</h3>
+                <details>
+                    <summary>Click to expand</summary>
+                    <p>Hidden content revealed when clicked.</p>
+                </details>
+
+                <dialog open>
+                    <p>This is an open dialog window</p>
+                    <button>Close</button>
+                </dialog>
+            </article>
+        </section>
+
+        <section id="section3">
+            <h2>Section 3: Forms & Tables</h2>
+            
+            <article>
+                <h3>Forms</h3>
+                <form>
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+                        
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" id="birthday" name="birthday">
+                        
+                        <label for="color">Favorite Color:</label>
+                        <input type="color" id="color" name="color" value="#ff0000">
+                        
+                        <label for="volume">Volume:</label>
+                        <input type="range" id="volume" name="volume" min="0" max="100">
+                        
+                        <label for="file">Upload File:</label>
+                        <input type="file" id="file" name="file">
+                        
+                        <label for="website">Website:</label>
+                        <input type="url" id="website" name="website" placeholder="https://example.com">
+                        
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="10">
+                        
+                        <label for="search">Search:</label>
+                        <input type="search" id="search" name="search" placeholder="Search...">
+                        
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time">
+                        
+                        <label for="week">Week:</label>
+                        <input type="week" id="week" name="week">
+                        
+                        <label for="month">Month:</label>
+                        <input type="month" id="month" name="month">
+                        
+                        <label for="datetime">Datetime:</label>
+                        <input type="datetime-local" id="datetime" name="datetime">
+                        
+                        <label for="browser">Choose browser:</label>
+                        <input list="browsers" id="browser" name="browser">
+                        <datalist id="browsers">
+                            <option value="Chrome">
+                            <option value="Firefox">
+                            <option value="Safari">
+                        </datalist>
+                        
+                        <label for="cars">Choose a car:</label>
+                        <select id="cars" name="cars">
+                            <optgroup label="German Cars">
+                                <option value="audi">Audi</option>
+                                <option value="bmw">BMW</option>
+                            </optgroup>
+                            <optgroup label="American Cars">
+                                <option value="ford">Ford</option>
+                                <option value="chevrolet">Chevrolet</option>
+                            </optgroup>
+                        </select>
+                        
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message here..."></textarea>
+                        
+                        <label>
+                            <input type="checkbox" name="subscribe" checked> Subscribe to newsletter
+                        </label>
+                        
+                        <p>Gender:</p>
+                        <label>
+                            <input type="radio" name="gender" value="male" checked> Male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female"> Female
+                        </label>
+                        
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                        <button type="button">Regular Button</button>
+                    </fieldset>
+                </form>
+            </article>
+
+            <article>
+                <h3>Tables</h3>
+                <table>
+                    <caption>Monthly Savings</caption>
+                    <colgroup>
+                        <col span="1" style="background-color: #f2f2f2">
+                        <col span="2" style="background-color: #ddd">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Savings</th>
+                            <th>Expenses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>January</td>
+                            <td>$100</td>
+                            <td>$80</td>
+                        </tr>
+                        <tr>
+                            <td>February</td>
+                            <td>$150</td>
+                            <td>$90</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>$250</td>
+                            <td>$170</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </article>
+        </section>
+
+        <section>
+            <h2>Section 4: Semantic Elements</h2>
+            <article>
+                <h3>Semantic Layout</h3>
+                <aside>
+                    <h4>Related Content</h4>
+                    <p>This is content tangentially related to the main content.</p>
+                </aside>
+                
+                <p>The <b>main</b> content continues here with some <i>italicized</i> text and <u>underlined</u> text.</p>
+                
+                <blockquote cite="https://www.example.com">
+                    <p>This is a blockquote from another source.</p>
+                    <footer>—Author Name, <cite>Source Title</cite></footer>
+                </blockquote>
+                
+                <pre>
+                    This text is preformatted
+                    with line breaks preserved
+                    exactly as written.
+                </pre>
+                
+                <p>Here's some inline <q>quoted text</q> within a sentence.</p>
+                
+                <address>
+                    Written by <a href="mailto:example@example.com">John Doe</a>.<br>
+                    Visit us at:<br>
+                    Example.com<br>
+                    Box 123, Exampleville<br>
+                    USA
+                </address>
+                
+                <p>The chemical formula for water is H<sub>2</sub>O.</p>
+                
+                <p>This is <bdi>إيان</bdi> - a name that might be displayed right-to-left.</p>
+                
+                <p>The word <bdo dir="rtl">backwards</bdo> is written backwards.</p>
+                
+                <p>This is <ruby>漢 <rp>(</rp><rt>Kan</rt><rp>)</rp></ruby> with ruby annotation.</p>
+                
+                <p>This is <span>a span element</span> used for styling.</p>
+                
+                <p>This is <wbr>a<wbr>very<wbr>long<wbr>word<wbr>that<wbr>might<wbr>break.</p>
+                
+                <template>
+                    <h4>This is template content</h4>
+                    <p>It won't be displayed until activated with JavaScript.</p>
+                </template>
+                
+                <canvas id="myCanvas" width="200" height="100">
+                    Your browser does not support the canvas element.
+                </canvas>
+                
+                <svg width="100" height="100">
+                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+                </svg>
+                
+                <progress value="70" max="100">70%</progress>
+                
+                <meter value="2" min="0" max="10">2 out of 10</meter>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 HTML5 Demonstration. All rights reserved.</p>
+        <p>Contact: <a href="mailto:info@example.com">info@example.com</a></p>
+    </footer>
+</body>
+</html>
